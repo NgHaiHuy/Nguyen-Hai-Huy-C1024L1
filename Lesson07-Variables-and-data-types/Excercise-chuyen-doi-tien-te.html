@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" onsubmit="convert()">
+  <table border="10">
+    <tr>
+      <td>
+        <label style="margin-left: min(60px)" for="Amout">Amout</label><br/>
+        <input type="text" id="Amout"></input>
+      </td>
+      <td>
+        <label style="margin-left: min(20px)" for="From">From Curency</label><br/>
+        <select style="width: 130px" id="From">
+          <option>VND</option>
+          <option>USD</option>
+        </select>
+      </td>
+      <td>
+      <label style="margin-left: min(20px)"  for="To">To Curency</label><br/>
+        <select style="width: 130px" id="To">
+          <option>USD</option>
+          <option>VND</option>
+        </select>
+      </td>
+      <td>
+        <input style="width: 100px" type="submit" value="Convert">
+      </td>
+  </table>
+</form>
+<script>
+  function convert() {
+    const Amout = document.getElementById("Amout").value;
+    const From = document.getElementById("From").value;
+    const To = document.getElementById("To").value;
+    console.log(Amout);
+    console.log(From);
+    console.log(To);
+    const tygia = 25.345;
+    let result;
+    if (From == "VND" && To == "USD") {
+      result = Amout / tygia;
+      alert("$" + result);
+    } else if (From == "USD" && To == "VND") {
+      result = Amout * tygia;
+      alert(result + "Vnd");
+    }
+  }
+</script>
+</body>
+</html>

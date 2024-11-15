@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Biến, kiểu dữ liệu và toán tử</title>
+</head>
+<body>
+<form action="" onsubmit="Averagescore()">
+<table border="5">
+  <tr>
+    <th>
+      <label for="1">Physics</label><br/>
+      <input type="number" id="1"></input>
+    </th>
+
+    <th>
+      <label for="2">English</label><br/>
+      <input type="number" id="2"></input>
+    </th>
+
+    <th>
+      <label for="3">Technology</label><br/>
+      <input type="number" id="3"></input>
+    </th>
+
+    <th>
+      <input style="width: 100px" type="submit" value="Average score">
+    </th>
+  </tr>
+</table>
+</form>
+<script>
+  function Averagescore() {
+const PhysicsScore = parseInt(document.getElementById("1").value);
+const EnglishScore = parseInt(document.getElementById("2").value);
+const TechnologyScore = parseInt(document.getElementById("3").value);
+console.log(PhysicsScore);
+console.log(EnglishScore);
+console.log(TechnologyScore);
+let result;
+{result = (PhysicsScore + EnglishScore + TechnologyScore) / 3;}
+alert(result);
+}
+</script>
+</body>
+</html>
