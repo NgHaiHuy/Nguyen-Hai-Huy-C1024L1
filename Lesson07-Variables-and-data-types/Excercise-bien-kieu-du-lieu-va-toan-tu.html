@@ -41,6 +41,73 @@ let result;
 {result = (PhysicsScore + EnglishScore + TechnologyScore) / 3;}
 alert(result);
 }
-</script>
+</script><br/>
+<form action="" onsubmit="Temperature()">
+<table border="5">
+  <tr>
+    <th>
+      <label for="Tem">Temperature C to F</label><br/>
+      <input type="text" id="Tem"></input>
+    </th>
+    <th>
+      <input style="width: 100px" type="submit" value="Convert"></input>
+    </th>
+  </tr>
+</table>
+</form>
+<script>
+  function Temperature() {
+    const Temperature = parseInt(document.getElementById("Tem").value);
+    let result;
+    {result  = (Temperature * 9 / 5 ) + 32;}
+    alert(result);
+  }
+</script><br/>
+
+<form action="" onsubmit="S()">
+  <table border="5">
+    <tr>
+      <th>
+        <label for="circle">Enter the radius of the circle</label><br/>
+        <input type="text" id="circle"></input>
+      </th>
+      <th>
+        <input style="width: 100px" type="submit" value="Convert"></input>
+      </th>
+    </tr>
+  </table>
+</form>
+<script>
+  function S() {
+    const circle = parseInt(document.getElementById("circle").value);
+    const PI = 3.14;
+    let result;
+    {result  = (PI * circle * circle );}
+    alert("Equal area is" + result);
+  }
+</script><br/>
+
+<form action="" onsubmit="A()">
+  <table border="5">
+    <tr>
+      <th>
+        <label for="C">Enter the area of the circle</label><br/>
+        <input type="text" id="C"></input>
+      </th>
+      <th>
+        <input style="width: 100px" type="submit" value="Convert"></input>
+      </th>
+    </tr>
+  </table>
+</form>
+<script>
+  function A() {
+    const C = parseInt(document.getElementById("C").value);
+    const PI = 3.14;
+    let result;
+    {result  = (2 * PI * C);}
+    alert("Circumference of circle is" + result);
+  }
+</script><br/>
 </body>
 </html>
