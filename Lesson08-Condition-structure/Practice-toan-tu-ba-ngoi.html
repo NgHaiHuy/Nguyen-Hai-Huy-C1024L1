@@ -17,5 +17,17 @@
   }
   alert( result);
 </script>
+
+<script>
+    let login = prompt("Enter:");
+    let message = (login == 'Employee') ?
+        'Hello' :
+        (login == 'Director') ?
+            'Greetings' :
+            (login == '') ?
+                'No login' :
+                "Unknown login"
+    alert(message);
+</script>
 </body>
 </html>
