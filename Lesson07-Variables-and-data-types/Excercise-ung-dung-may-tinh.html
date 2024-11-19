@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Ứng dụng máy tính</title>
+</head>
+<body>
+<form action="" onsubmit="A">
+    <table>
+        <tr>
+            <th>
+                <input type="text" id="1" placeholder="Enter the first number"></input>
+            </th>
+            <th>
+                <input type="text" id="2" placeholder="Enter the second number"></input>
+            </th>
+            <th id="3">
+                <input type="submit" value="Addition"></input>
+                <input type="submit" value="Subtraction"></input>
+                <input type="submit" value="Multiplication"></input>
+                <input type="submit" value="Division"></input>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    debugger;
+    function A() {
+        const a = parseInt(document.getElementById("1").value);
+        const b = parseInt(document.getElementById("2").value);
+        const c = document.getElementById("3").value;
+        console.log(a);
+        console.log(b);
+        let result;
+        if (c == "Addition") {
+            result = a + b;
+            alert(result)
+        }else if (c == "Subtraction"){
+                result = a - b;
+            alert(result)
+        }else if (c == "Multiplication"){
+                result = a * b;
+            alert(result)
+        } else (c == "Division")
+            result = a / b;
+            alert(result)
+
+    }
+</script>
+</body>
+</html>

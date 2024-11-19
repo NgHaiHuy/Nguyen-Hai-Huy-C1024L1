@@ -5,38 +5,11 @@
     <title>Test</title>
 </head>
 <body>
-<form action="" onsubmit="convert(event)">
-    <table border="10">
-        <tr>
-            <td>
-                <label style="margin-left: min(60px)" for="Amout">Amout</label><br/>
-                <input type="text" id="Amout"></input>
-            </td>
-            <td>
-                <label style="margin-left: min(20px)" for="From">From Curency</label><br/>
-                <input type="text" style="width: 130px" id="From"></input>
-            </td>
-            <td>
-                <label style="margin-left: min(20px)"  for="To">To Curency</label><br/>
-                <input type="text" style="width: 130px" id="To"></input>
-            </td>
-            <td>
-                <input style="width: 100px" type="submit" value="Convert">
-            </td>
-    </table>
-</form>
-<script>
-    function convert(e) {
-        e.preventDefault();
-        const Amout = document.getElementById("Amout").value;
-        const From = document.getElementById("From").value;
-        const To = document.getElementById("To").value;
-        console.log(Amout);
-        console.log(From);
-        console.log(To);
-        var a = (Amout + From + To)
-        alert(a);
-    }
-</script>
+<input type="text" id="1">
+<input type="text" id="2">
+<button onmouseout="add()">Click me</button>
+<button onclick="sub()">Click me</button>
+<div id="result">0</div>
+
 </body>
 </html>
