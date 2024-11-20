@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Máy tính đơn giản</title>
+
+</head>
+<body  style="text-align: center;">
+<input style="width: 150px" type="text" id="view">
+<div class="maytinh" onclick="MT">
+    <table style="margin: auto;text-align: center;">
+        <tr>
+            <th><button style="width: 30px" onclick="addToInput(1)" id="1">1</button></th>
+            <th><button style="width: 30px" onclick="addToInput(2)" id="2">2</button></th>
+            <th><button style="width: 30px" onclick="addToInput(3)" id="3">3</button></th>
+            <th><button style="width: 30px" onclick="addToInput('+')" id="+">+</button></th>
+        </tr>
+        <tr>
+            <th><button style="width: 30px" onclick="addToInput(4)" id="4">4</button></th>
+            <th><button style="width: 30px" onclick="addToInput(5)" id="5">5</button></th>
+            <th><button style="width: 30px" onclick="addToInput(6)" id="6">6</button></th>
+            <th><button style="width: 30px" onclick="addToInput('-')" id="-">-</button></th>
+        </tr>
+        <tr>
+            <th><button style="width: 30px" onclick="addToInput(7)" id="7">7</button></th>
+            <th><button style="width: 30px" onclick="addToInput(8)" id="8">8</button></th>
+            <th><button style="width: 30px" onclick="addToInput(9)" id="9">9</button></th>
+            <th><button style="width: 30px" onclick="addToInput('*')">*</button></th>
+        </tr>
+        <tr>
+            <th><button style="width: 30px" onclick="remove()" id="AC">AC</button></th>
+            <th><button style="width: 30px" onclick="addToInput(0)" id="0">0</button></th>
+            <th><button style="width: 30px" onclick="calculate()">=</button></th>
+            <th><button style="width: 30px" onclick="addToInput('/')" id="/">/</button></th>
+        </tr>
+    </table>
+</div>
+<script>
+    let previous_value = "";
+    function addToInput(value) {
+        previous_value = previous_value + value;
+        document.getElementById("view").value = previous_value;
+    }
+function calculate() {
+        previous_value = "";
+        const result = eval(document.getElementById("view").value);
+        document.getElementById("view").value = result;
+}
+function remove() {
+    previous_value = "";
+
+}
+
+</script>
+</body>
+</html>
