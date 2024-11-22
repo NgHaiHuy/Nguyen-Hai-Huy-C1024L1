@@ -5,6 +5,96 @@
     <title>[Bài tập] Game puzzle</title>
 </head>
 <body>
+<div style="text-align: center;">
+    <img id="part1" src="funny-cat1_part1x1.jpg" width="500" alt="" onclick="changeImg(1)"><br>
+    <img id="part2" src="panda_swap_part2x1.jpg" width="500" alt="" onclick="changeImg(2)"><br>
+    <img id="part3" src="monkey_part3x1.jpg" width="500" alt="" onclick="changeImg(3)"><br>
+    <img id="part4" src="panda_swap_part4x1.jpg" width="500" alt="" onclick="changeImg(4)"><br>
+    <img id="part5" src="funny-cat1_part5x1.jpg" width="500" alt="" onclick="changeImg(5)"><br>
+</div>
+<script>
+    let isCat = isPanda = isMoney = 0;
+    function changeImg(part) {
+        const part1 = document.getElementById("part1");
+        const part2 = document.getElementById("part2");
+        const part3 = document.getElementById("part3");
+        const part4 = document.getElementById("part4");
+        const part5 = document.getElementById("part5");
+        switch (part) {
+            case 1:
+                if (part1.src.includes('funny-cat1_part1x1.jpg')) {
+                    part1.src = 'monkey_part1x1.jpg';
+                    isMoney++;
+                    isPanda--;
+                    isCat--;
+                } else if (part1.src.includes('monkey_part1x1.jpg')) {
+                    part1.src = 'panda_swap_part1x1.jpg';
+                    isPanda++;
+                } else {
+                    part1.src = 'funny-cat1_part1x1.jpg';
+                    isCat++;
+                }
+                break;
+            case 2:
+                if (part2.src.includes('funny-cat1_part2x1.jpg')) {
+                    part2.src = 'monkey_part2x1.jpg';
+                    isMoney++;
+                    isPanda--;
+                    isCat--;
+                } else if (part2.src.includes('monkey_part2x1.jpg')) {
+                    part2.src = 'panda_swap_part2x1.jpg';
+                    isPanda++;
+                    isMoney--;
+                    isCat--;
+                } else {
+                    part2.src = 'funny-cat1_part2x1.jpg';
+                    isCat++;
+                    isPanda--;
+                    isMoney--;
+                }
+                break;
+            case 3:
+                if (part3.src.includes('funny-cat1_part3x1.jpg')) {
+                    part3.src = 'monkey_part3x1.jpg';
+                    isMoney++;
+                    isPanda--;
+                    isCat--;
+                } else if (part3.src.includes('monkey_part3x1.jpg')) {
+                    part3.src = 'panda_swap_part3x1.jpg';
+                    isPanda++;
+                    isMoney--;
+                    isCat--;
+                } else {
+                    part3.src = 'funny-cat1_part3x1.jpg';
+                    isCat++;
+                    isPanda--;
+                    isMoney--;
+                }
+                break;
+            case 4:
+                if (part4.src.includes('funny-cat1_part4x1.jpg')) {
+                    part4.src = 'monkey_part4x1.jpg';
+                } else if (part4.src.includes('monkey_part4x1.jpg')) {
+                    part4.src = 'panda_swap_part4x1.jpg';
+                } else {
+                    part4.src = 'funny-cat1_part4x1.jpg';
+                }
+                break;
+            case 5:
+                if (part5.src.includes('funny-cat1_part5x1.jpg')) {
+                    part5.src = 'monkey_part5x1.jpg';
+                } else if (part5.src.includes('monkey_part5x1.jpg')) {
+                    part5.src = 'panda_swap_part5x1.jpg';
+                } else {
+                    part5.src = 'funny-cat1_part5x1.jpg';
+                }
+                break;
+        }
+        console.log(isMoney);
+        console.log(isCat);
+        console.log(isPanda);
 
+    }
+</script>
 </body>
 </html>

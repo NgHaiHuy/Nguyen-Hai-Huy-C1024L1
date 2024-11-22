@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 01</title>
+</head>
+<body>
+<h2>Lesson 1: Enter two numbers a and b, and check whether a is divisible by b or not</h2>
+<form method="post" action="">
+  <table>
+    <tr>
+      <th>
+        <label>Enter a:</label>
+        <input type="text" id="a" placeholder="a">
+      <th/>
+      <th>
+        <label>Enter b:</label>
+        <input type="text" id="b"placeholder="b">
+      </th>
+      <th>
+        <button type="button" onclick="summit()">Calculate</button>
+      </th>
+    </tr>
+  </table>
+</form>
+<script>
+  function summit() {
+    const a = parseInt(document.getElementById("a").value);
+    const b = parseInt(document.getElementById("b").value);
+    console.log(a);
+    console.log(b);
+    let c = "a is divisible by b";
+    if (a%b==0) {
+      alert(c);
+      } else { (a%b==1)
+    alert('a is not divisible by b');};
+  }
+</script>
+<hr/>
+<h2>Lesson 2: Enter age and print the results if the student's age is not eligible to enter 10th grade.</h2>
+<form action="">
+  <table>
+    <tr>
+      <th>
+        <label>Enter your age:</label>
+        <input type="text" id="age" placeholder="age">
+      <th/>
+      <th>
+        <button type="button" onclick="Check()">Check</button>
+      </th>
+    </tr>
+  </table>
+</form>
+<script>
+  function Check() {
+    const age = parseInt(document.getElementById("age").value);
+    console.log(age);
+    let result = "You are eligible to enter 10th grade";
+    if (age == 15) {
+      alert(result);
+      } else { (age < 15 || age > 15)
+      alert('You are not eligible to enter 10th grade');};
+  }
+</script>
+<hr/>
+<h2>Lesson 3: Enter any integer and print the result to the screen to tell the user whether the number is greater or less than 0.</h2>
+<form action="">
+  <table>
+    <tr>
+      <th>
+        <label>Enter any number:</label>
+        <input type="text" id="N" placeholder="Number">
+      <th/>
+      <th>
+        <button type="button" onclick="Calculate()">Check</button>
+      </th>
+    </tr>
+  </table>
+</form>
+<script>
+  function Calculate() {
+    const N = parseInt(document.getElementById("N").value);
+    console.log(N);
+    let result = 0;
+    if (N > 0) {
+      alert(N + ' is greater than ' + result);
+    } else { (N < 0 )
+      alert( N + ' is less than ' + result);};
+  }
+</script>
+<hr/>
+<h2>Lesson 4: Enter 3 integers and find the largest value of those three integers.</h2>
+<form action="">
+  <table>
+    <tr>
+      <th>
+        <label>Enter number 1:</label>
+        <input type="text" id="1" placeholder="Number">
+      <th/>
+      <th>
+        <label>Enter number 2:</label>
+        <input type="text" id="2" placeholder="Number">
+      <th/>
+      <th>
+        <label>Enter number 3:</label>
+        <input type="text" id="3" placeholder="Number">
+      <th/>
+      <th>
+        <button type="button" onclick="Calcul()">Check</button>
+      </th>
+    </tr>
+  </table>
+</form>
+<script>
+  function Calcul() {
+    const mot = parseInt(document.getElementById("1").value);
+    const hai = parseInt(document.getElementById("2").value);
+    const ba = parseInt(document.getElementById("3").value);
+    console.log(mot);
+    console.log(hai);
+    console.log(ba);
+    let max = mot;
+    if (max < hai) {
+   max = hai;}
+   if (max < ba) {
+     max = ba;}
+    alert('The largest value is ' + max);
+  }
+</script>
+<hr/>
+<h2>Lesson 5: Ranking students' academic performance based on test scores, midterm exam scores, and final exam scores.</h2>
+<form action="" onsubmit="Averagescore()">
+  <table>
+    <tr>
+      <th>
+        <label for="1">Physics</label>
+        <input type="number" id="1a"></input>
+      </th>
+
+      <th>
+        <label for="2">English</label>
+        <input type="number" id="2a"></input>
+      </th>
+
+      <th>
+        <label for="3">Technology</label>
+        <input type="number" id="3a"></input>
+      </th>
+
+      <th>
+        <input style="width: 100px" type="submit" value="Average score">
+      </th>
+    </tr>
+  </table>
+</form>
+<script>
+  function Averagescore() {
+    const PhysicsScore = parseInt(document.getElementById("1a").value);
+    const EnglishScore = parseInt(document.getElementById("2a").value);
+    const TechnologyScore = parseInt(document.getElementById("3a").value);
+    console.log(PhysicsScore);
+    console.log(EnglishScore);
+    console.log(TechnologyScore);
+    let result;
+    {result = (PhysicsScore + EnglishScore + TechnologyScore) / 3;}
+    if (result > 9) {
+      alert("Rank A");}
+      else if ((result > 8) && (result < 9)) {
+        alert('Rank B');}
+      else if ((result > 7) && (result < 8)) {
+        alert('Rank C');}
+      else if ((result > 5) && (result < 7)) {
+        alert('Rank D');}
+  }
+</script>
+<hr/>
+<h2>Lesson 6: Calculate the commission received depending on the level of sales.</h2>
+<form action="">
+  <table>
+    <tr>
+      <th>
+        <label>Enter sales:</label>
+        <input type="text" id="AA" placeholder="$">
+      <th/>
+      <th>
+        <button type="button" onclick="Tinh()">Check</button>
+      </th>
+    </tr>
+  </table>
+</form>
+<script>
+  function Tinh() {
+    const AA = parseInt(document.getElementById("AA").value);
+    console.log(AA);
+    let money;{
+      money = ((10/100)*AA);}
+    alert('The amount of commission you receive is ' + money + ' $');
+  }
+</script>
+<hr/>
+<h2>Lesson 7: Calculate telephone charges for a household with the given parameters.</h2>
+<form action="">
+  <table>
+    <tr>
+      <th>
+        <label>Enter the number of minutes you have been calling:</label>
+        <input type="text" id="phut" placeholder="minutes">
+      <th/>
+      <th>
+        <button type="button" onclick="Tong()">Check</button>
+      </th>
+    </tr>
+  </table>
+</form>
+<script>
+  function Tong() {
+    const phut = parseInt(document.getElementById("phut").value);
+    console.log(phut);
+    const phicodinh = 25000;
+    let tong;{
+      if (phut > 200) {
+        phi = (phut - 200) * 200 + 150 * 400 + 50 * 600;
+      }
+      else if (phut > 50) {
+        phi = (phut - 50) * 400 + 50 * 600;
+      }
+      else {
+        phi = (phut * 600)
+      }
+      alert('The amount of phuts you receive is ' + (tong = (phi + phicodinh)) + 'VND');
+    }
+  }
+</script>
+</body>
+</html>
