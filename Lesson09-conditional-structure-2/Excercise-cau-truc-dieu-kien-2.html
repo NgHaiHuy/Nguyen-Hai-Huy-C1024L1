@@ -2,9 +2,433 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02</title>
+    <style>
+        h2{
+            color: #0028f8;
+        }
+    </style>
 </head>
 <body>
+<h2>Lesson 1: Convert ℃ to ℉.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Convert ℃ to ℉ :</label>
+                <input type="text" placeholder="C" id="C">
+            </th>
+            <th>
+                <button type="button" onclick="convert()">convert</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function convert() {
+        const c = parseInt(document.getElementById("C").value);
+        console.log(c);
+        let result;
+        {
+            result = c * 9 / 5 + 32
+            alert(c + "℃ = " + result + "℉");
+        }
+    }
+</script>
+<hr/>
+<h2>Lesson 2: Convert Met to Feet.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Convert Met to Feet :</label>
+                <input type="text" placeholder="m" id="m">
+            </th>
+            <th>
+                <button type="button" onclick="conver()">convert</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function conver() {
+        const m = parseInt(document.getElementById("m").value);
+        console.log(m);
+        let result;
+        {
+            result = m * 3.2808
+            alert(m + "m = " + result + "ft");
+        }
+    }
+</script>
+<hr/>
+<h2>Lesson 3: Calculate the area of a square knowing side a.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Enter edge a :</label>
+                <input type="text" placeholder="a" id="a">
+            </th>
+            <th>
+                <button type="button" onclick="conve()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function conve() {
+        const a = parseInt(document.getElementById("a").value);
+        console.log(a);
+        let S;
+        {
+            S = a * a
+            alert("Square area equal is " + S);
+        }
+    }
+</script>
+<hr/>
+<h2>Lesson 4: Calculate the area of a square knowing side a.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Enter edge a :</label>
+                <input type="text" placeholder="a" id="1">
+            </th>
+            <th>
+                <label>Enter edge b :</label>
+                <input type="text" placeholder="a" id="2">
+            </th>
+            <th>
+                <button type="button" onclick="conv()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function conv() {
+        const A = parseInt(document.getElementById("1").value);
+        const B = parseInt(document.getElementById("2").value);
+        console.log(A);
+        console.log(B);
+        let S;
+        {
+            S = A * B
+            alert("Square area equal is " + S);
+        }
+    }
+</script>
+<hr/>
+<h2>Lesson 5: Calculate the area of a right triangle when you know the two adjacent sides a and b.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Enter edge a :</label>
+                <input type="text" placeholder="a" id="3">
+            </th>
+            <th>
+                <label>Enter edge b :</label>
+                <input type="text" placeholder="a" id="4">
+            </th>
+            <th>
+                <button type="button" onclick="conv()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function conv() {
+        const A = parseInt(document.getElementById("3").value);
+        const B = parseInt(document.getElementById("4").value);
+        console.log(A);
+        console.log(B);
+        let S;
+        {
+            S = A*B/2
+            alert("Square area equal is " + S);
+        }
+    }
+</script>
+<hr/>
+<h2>Lesson 6: Solve 1st degree equations.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Enter a :</label>
+                <input type="text" placeholder="a" id="5">
+            </th>
+            <th>
+                <label>Enter b :</label>
+                <input type="text" placeholder="a" id="6">
+            </th>
+            <th>
+                <button type="button" onclick="con()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function con() {
+        const A = parseInt(document.getElementById("5").value);
+        const B = parseInt(document.getElementById("6").value);
+        console.log(A);
+        console.log(B);
+        let x;
+        if ( A == 0 && B == 0 ){
+                alert("The above equation has infinitely many solutions")
+            }
+            else {
+                x = -B / A
+                alert("Equation " + A + "x " + "+" + B + " = 0" + " has solution x is " + x)
+            }
+    }
+</script>
+<h2>Lesson 7: Solve quadratic equations.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Enter A :</label>
+                <input type="text" placeholder="a" id="2a">
+            </th>
+            <th>
+                <label>Enter B :</label>
+                <input type="text" placeholder="a" id="3a">
+            </th>
+            <th>
+                <label>Enter C :</label>
+                <input type="text" placeholder="a" id="4a">
+            </th>
+            <th>
+                <button type="button" onclick="Bac()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function Bac() {
+        const A = parseInt(document.getElementById("2a").value);
+        const B = parseInt(document.getElementById("3a").value);
+        const C = parseInt(document.getElementById("4a").value);
+        console.log(A);
+        console.log(B);
+        console.log(C);
+        let D;
+        if( A == 0 )
+        {
+            if( B == 0 )
+            {
+                if( C == 0 )
+                    alert("The equation has infinitely many solutions!");
+                else
+                    alert("Unsolved equation!");
+            }
+            else
+                alert("The only solution equation is: " + ( -C / B ) );
+        }
+        else
+        {
+            D = B * B - 4 * A * C;
+            if ( D < 0 )
+                alert("Unsolved equation!!!");
+            else if ( D == 0 )
+                alert("The equation has a double solution: " + (-B/(2*A)));
+            else
+                alert("The equation has two distinct solutions:: " + (-B + sqrt(D) ) / ( 2 * A ) + ( -B -sqrt(D) )/( 2 * A ));
+        }
+    }
+</script>
+<h2>Lesson 8: Checks whether an entered number is the age of a person. An integer is a person's age when less than 120 and greater than 0.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Enter your age :</label>
+                <input type="text" placeholder="age" id="1b">
+            </th>
+            <th>
+                <button type="button" onclick="age()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+function age() {
+    const A = parseInt(document.getElementById("1b").value);
+    console.log(A);
+    let S;
+    if ( A == 0 ){
+        alert("You weren't born yet")}
+        else if ( A > 120 ){
+            alert("This is not your age")}
+            else if ( A < 120 && A > 0 ){
+                alert("Are you sure this is your age?")}
+            else {
+                alert("Please enter your age")
+            }
+}
+</script>
+<hr/>
+<h2>Lesson 9: Check if the 3 entered real numbers (a,b,c) are sides of a triangle.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Enter A :</label>
+                <input type="text" placeholder="a" id="7">
+            </th>
+            <th>
+                <label>Enter B :</label>
+                <input type="text" placeholder="a" id="8">
+            </th>
+            <th>
+                <label>Enter C :</label>
+                <input type="text" placeholder="a" id="9">
+            </th>
+            <th>
+                <button type="button" onclick="co()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function co() {
+        const A = parseInt(document.getElementById("7").value);
+        const B = parseInt(document.getElementById("8").value);
+        const C = parseInt(document.getElementById("9").value);
+        console.log(A);
+        console.log(B);
+        console.log(C);
+        let X;
+            if (A > 0 && B > 0 && C > 0 && A + B > C > 0 && B + C > A && A + C > B){
+                alert("a,b,c are sides of a triangle")}
+            else{
+                alert("a,b,c are not sides of a triangle")
+            }
+    }
+</script>
+<hr/>
+<h2>Lesson 10: Write a program to calculate electricity prices.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Enter the electrically number you used :</label>
+                <input type="text" placeholder="a" id="1a">
+            </th>
+            <th>
+                <button type="button" onclick="c()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function c() {
+        const A = parseInt(document.getElementById("1a").value);
+        console.log(A);
+        let X;
+        {
+            X = A * 2800;
+            alert("The amount you have to pay is " + X + "Vnd");
+        }
+    }
+</script>
+<hr/>
+<h2>Lesson 11: Write a program to calculate personal income tax.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label>Enter your personal income tax :</label>
+                <input type="text" placeholder="Vnd" id="1c">
+            </th>
+            <th>
+                <button type="button" onclick="thue()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function thue() {
+        const A = parseInt(document.getElementById("1c").value);
+        console.log(A);
+        let X;
+        if ( A > 0 && A < 5000000 ){
+            X = A * 5/100;
+            alert("The amount you have to pay is " + X + "Vnd");
+        }
+        else if ( A > 5000000 && A < 10000000 ){
+            X = A * 10/100;
+            alert("The amount you have to pay is " + X + "Vnd");
+        }
+        else if ( A > 5000000 && A < 18000000 ){
+            X = A * 15/100;
+            alert("The amount you have to pay is " + X + "Vnd");
+        }
+        else if ( A > 1800000 && A < 32000000 ){
+            X = A * 20/100;
+            alert("The amount you have to pay is " + X + "Vnd");
+        }
+        else if ( A > 3200000 && A < 52000000 ){
+            X = A * 25/100;
+            alert("The amount you have to pay is " + X + "Vnd");
+        }
+        else if ( A > 5200000 && A < 80000000 ){
+            X = A * 30/100;
+            alert("The amount you have to pay is " + X + "Vnd");
+        }
+        else if ( A > 8000000){
+            X = A * 35/100;
+            alert("The amount you have to pay is " + X + "Vnd");
+        }
+        else {
+            alert("Please enter your personal income tax");
+        }
+    }
 
+
+</script>
+<hr/>
+<h2>Lesson 12: Write a program to calculate bank interest (parent interest, child interest) when knowing the initial amount, number of loan months and monthly interest rate.</h2>
+<form>
+    <table>
+        <tr>
+            <th>
+                <label style="text-align: left">Enter money :</label>
+                <input type="text" placeholder="Money" id="1d">
+                <br>
+                <label>Enter Time :</label>
+                <input type="number" placeholder="Time" id="2b">
+                <select style="width: 70px" id="To">
+                    <option>Month</option>
+                    <option>Year</option>
+                </select>
+                <button type="button" onclick="lai()">Calculate</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+    function lai() {
+        const A = parseInt(document.getElementById("1d").value);
+        const B = parseInt(document.getElementById("2b").value);
+        const C = document.getElementById("To").value;
+        console.log(A);
+        console.log(B);
+        console.log(C);
+        let X;
+        if ( C == 'Month' ){
+            X = A * 6.8 / 100 / 12 * B ;
+            alert("The amount you have receive after" + B + " month is " + X + "Vnd");
+        }
+        else if ( C == 'Year' ){
+            X = A * 6.8 / 100 / 12 * B * 12 ;
+            alert("The amount you have receive" + B + " year is " + X + "Vnd");
+        }
+    }
+</script>
 </body>
 </html>
