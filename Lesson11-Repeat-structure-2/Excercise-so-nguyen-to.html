@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Hiển thị các số nguyên tố đầu tiên</title>
+</head>
+<body>
+<script>
+    function isPrimeNumber(n) {
+
+        if (n < 2) {
+            return false;
+        }
+
+        const squareRoot = Math.sqrt(n);
+        for (let i = 2; i <= squareRoot; i++) {
+            if (n % i === 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function main() {
+        const n = parseInt(prompt("Enter n: "));
+        let count = 0;
+        let i = 2;
+
+        while (count < n) {
+            if (isPrimeNumber(i)) {
+                document.write(i + "<br>");
+                count++;
+            }
+            i++;
+        }
+    }
+    main();
+</script>
+</body>
+</html>
