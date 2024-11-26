@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Tạo và thao tác với mảng</title>
+    <style>
+        body {
+            padding-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input style="width: 150px" type="text" id="value"/>
+<input  style="width: 100px" type="button" id="add" value="Add value" onclick="addValue()"/>
+<input type="button" id="dis" value="Disable value" onclick="disableValue()"/>
+<div id="result"></div>
+<script>
+let x = 0;
+let array = Array();
+function addValue() {
+    array[x] = document.getElementById("value").value;
+    alert("Element: " + array + " added at " + x );
+    x++;
+    document.getElementById('value').value = "";
+}
+function disableValue() {
+    let e = '<hr/>';
+    for (let i = 0; i < array.length; i++) {
+        e += "Element " + i + " = " + array[i] + "<br/>";
+    }
+        document.getElementById('result').innerHTML = e;
+}
+</script>
+</body>
+</html>
