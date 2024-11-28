@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Caro</title>
+  <style>
+    #board {
+      text-align: center;
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 5px;
+    }
+    .cell {
+      text-align: center;
+      margin-top: auto;
+      width: 100px;
+      height: 100px;
+      background-color: #9bd6b0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Game Caro</h1>
+<div id="board"></div>
+<p id="message"></p>
+
+<script>
+  const boardElement = document.getElementById('board');
+  const messageElement = document.getElementById('message');
+  const board = Array(3).fill(null).map(() => Array(3).fill('.'));
+  let currentPlayer = 'X';
+
+  function renderBoard() {
+    boardElement.innerHTML = '';
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.textContent = board[i][j];
+        cell.addEventListener('click', () => handleCellClick(i, j));
+        boardElement.appendChild(cell);
+      }
+    }
+  }
+
+  function handleCellClick(i, j) {
+    if (board[i][j] === '.') {
+      board[i][j] = currentPlayer;
+      if (checkWinner(currentPlayer)) {
+        messageElement.textContent = `Player's ${currentPlayer} win!`;
+        boardElement.style.pointerEvents = 'none';
+      } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        messageElement.textContent = `Player's turn ${currentPlayer}`;
+      }
+      renderBoard();
+    }
+  }
+
+  function checkWinner(player) {
+    for (let i = 0; i < 3; i++) {
+      if (board[i][0] === player && board[i][1] === player && board[i][2] === player) {
+        return true;
+      }
+    }
+    for (let j = 0; j < 3; j++) {
+      if (board[0][j] === player && board[1][j] === player && board[2][j] === player) {
+        return true;
+      }
+    }
+    if (board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+      return true;
+    }
+    if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+      return true;
+    }
+    return false;
+  }
+
+  renderBoard();
+  messageElement.textContent = `Player's turn ${currentPlayer}`;
+</script>
+</body>
+</html>
