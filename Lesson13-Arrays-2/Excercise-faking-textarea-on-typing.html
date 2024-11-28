@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>[*Bài tập] Ứng dụng vui Faking Textarea on Typing</title>
-</head>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-  }
-  #output {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
-    color: #333;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gõ Bàn Phím</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    #output {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-
 <h1>Typing anything</h1>
 <div id="output"></div>
-
 <script>
   const outputElement = document.getElementById('output');
-  const fixedText = "You are so stupid!";
+  const fixedText = "Wellcome to my website!";
   let index = 0;
 
   document.addEventListener('keydown', (event) => {
@@ -39,5 +37,6 @@
     }
   });
 </script>
+
 </body>
 </html>

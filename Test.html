@@ -1,11 +1,45 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gõ Bàn Phím</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #output {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
+
+<h1>Gõ Bàn Phím</h1>
+<p>Bất kỳ phím nào bạn gõ sẽ hiện ra dòng chữ dưới đây:</p>
+<div id="output"></div>
+
+<script>
+    const outputElement = document.getElementById('output');
+    const fixedText = "Chào mừng đến với trang web của tôi!";
+    let index = 0;
+
+    document.addEventListener('keydown', (event) => {
+        if (index < fixedText.length) {
+            outputElement.textContent += fixedText[index];
+            index++;
+        }
+    });
+</script>
 
 </body>
 </html>

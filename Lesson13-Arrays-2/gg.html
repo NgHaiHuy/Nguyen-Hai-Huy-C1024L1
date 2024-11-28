@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiển Thị Văn Bản Khi Gõ Phím</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    #show {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Nhấn phím để hiển thị văn bản</h1>
+<div id="show"></div>
+
+<script>
+  let defaulttext = ['I', ' ', 'h', 'a', 'v', 'e', ' ', 'a', ' ', 'b', 'i', 'g', ' ', 'd', 'i', 'c', 'k'];
+  let x = document.getElementById("show");
+  let index = 0; // Chỉ số để theo dõi ký tự hiện tại
+
+  function rendertext() {
+    if (index < defaulttext.length) {
+      x.textContent += defaulttext[index]; // Thêm ký tự vào phần tử
+      index++;
+    }
+  }
+
+  // Lắng nghe sự kiện nhấn phím
+  document.addEventListener("keydown", function(event) {
+    rendertext(); // Gọi hàm rendertext khi người dùng nhấn phím
+  });
+</script>
+
+</body>
+</html>
