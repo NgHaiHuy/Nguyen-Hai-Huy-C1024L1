@@ -3,14 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <style>
-        i{
-            color: blue;
-        }
-    </style>
 </head>
-<body style="text-align: center">
-<i class="material-icons">cloud</i>
+<body>
+<script>
+    let board = [
+        ['-', '-', '-'],
+        ['-', '-', '-'],
+        ['-', '-', '-']
+    ];
+
+    function displayBoard() {
+        console.clear();
+        for (let row of board) {
+            console.log(row.join(' '));
+        }
+        for (let col of board) {
+            console.log(col.join(' '));
+        }
+    }
+
+    function checkWin(player) {
+        for (let i = 0; i < 3; i++) {
+            if (
+                (board[i][0] === player && board[i][1] === player && board[i][2] === player)
+                (board[0][i] === player && board[1][i] === player && board[2][i] === player)
+
+            (i === 0 && board[0][0] === player && board[1][1] === player && board[2][2] === player)
+            (i === 0 && board[0][2] === player && board[1][1] === player && board[2][0] === player)
+        ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function playGame() {
+        let currentPlayer = 'X';
+        displayBoard();
+
+        while (true) {
+            let row, col;
+            do {
+                const input = prompt(`Người chơi nhập hàng và cột (ví dụ: 1 2):`);
+                [row, col] = input.split(' ').map(Number);
+            } while (row < 1 || row > 3 || col < 1 || col > 3 || board[row - 1][col - 1] !== '.');
+
+            board[row - 1][col - 1] = currentPlayer;
+            displayBoard();
+
+            if (checkWin(currentPlayer)) {
+                alert(`Người chơi thắng!`);
+                break;
+            }
+
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+    }
+
+    playGame();
+</script>
 </body>
 </html>

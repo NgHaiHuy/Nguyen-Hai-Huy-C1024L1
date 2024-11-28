@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Sử dụng các hàm có sẵn của mảng</title>
+</head>
+<body>
+
+
+
+<script>
+  const elements = ['Red', 'Green', 'White', 'Black'];
+  const sentence = elements.join();
+  document.write(sentence)
+</script>
+<br/>
+<script>
+    var num = [0,2,5,4,6,8];
+
+    var result = [num[0]];
+
+    for (var x = 1; x < num.length; x++) {
+        if (num[x - 1] % 2 === 0 && num[x] % 2 === 0) {
+            result.push('-', num[x]);
+        } else {
+            result.push(num[x]);
+        }
+    }
+    document.write(result.join(''));
+</script>
+<br/>
+<script>
+        var str = "Convert";
+        var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        var result = [];
+
+        for (var x = 0; x < str.length; x++) {
+            if (UPPER.indexOf(str[x]) !== -1) {
+                result.push(str[x].toLowerCase());
+            } else if (LOWER.indexOf(str[x]) !== -1) {
+                result.push(str[x].toUpperCase());
+            } else {
+                result.push(str[x]);
+            }
+        }
+        document.write(result.join(''));
+</script>
+</body>
+</html>
