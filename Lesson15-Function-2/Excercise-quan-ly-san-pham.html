@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[*Bài tập] Ứng dụng quản lý sản phẩm sử dụng hàm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        #productCount {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-group">
+        <input type="text" id="newProduct" placeholder="New Product">
+        <button onclick="addProduct()">Add</button>
+    </div>
+    <p id="productCount"></p>
+    <table>
+        <thead>
+        <tr>
+            <th>Number</th>
+            <th>Product Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="productTable"></tbody>
+    </table>
+</div>
+
+<script>
+    let products = ["Sony", "Samsung", "Nokia", "Xiaomi", "IPhone"];
+
+    function displayProducts() {
+        const productTable = document.getElementById("productTable");
+        const productCount = document.getElementById("productCount");
+        productTable.innerHTML = "";
+        products.forEach((product, index) => {
+            productTable.innerHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${product}</td>
+                        <td>
+                            <button class="edit-btn" onclick="editProduct(${index})">Edit</button>
+                            <button class="delete-btn" onclick="deleteProduct(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+        });
+        productCount.textContent = `${products.length} products`;
+    }
+
+    function addProduct() {
+        const newProduct = document.getElementById("newProduct").value.trim();
+        if (newProduct) {
+            products.push(newProduct);
+            document.getElementById("newProduct").value = "";
+            displayProducts();
+        }
+    }
+
+    function editProduct(index) {
+        const newName = prompt("Enter new product name:", products[index]);
+        if (newName) {
+            products[index] = newName;
+            displayProducts();
+        }
+    }
+
+    function deleteProduct(index) {
+        if (confirm("Are you sure you want to delete this product?")) {
+            products.splice(index, 1);
+            displayProducts();
+        }
+    }
+
+    displayProducts();
+</script>
+</body>
+</html>
