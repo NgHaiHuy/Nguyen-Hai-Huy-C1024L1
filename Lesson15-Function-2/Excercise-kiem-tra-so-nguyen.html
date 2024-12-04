@@ -10,15 +10,17 @@
     let x = parseInt(prompt("Nhập số nguyên."))
     if (x <= 1) {
       alert('Đây không phải là số nguyên.')
+      return;
     }
     for (let i = 2; i <= Math.sqrt(number); i++) {
-      if (x % i === 0) {
+      if (x % i === 0){
         alert('Đây không phải là số nguyên.')
+      return;
       }
     }
     alert('Đây là số nguyên.')
   }
-isPrime()
+  isPrime(1)
 </script>
 </body>
 </html>
