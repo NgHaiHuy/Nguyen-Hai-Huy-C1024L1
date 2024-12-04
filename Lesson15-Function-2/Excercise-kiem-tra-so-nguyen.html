@@ -6,16 +6,19 @@
 </head>
 <body>
 <script>
-  function isPrime(){
+  function isPrime(number) {
     let x = parseInt(prompt("Nhập số nguyên."))
-    if (Number.isInteger(x)) {
-      alert("Đây là số nguyên.")
+    if (x <= 1) {
+      alert('Đây không phải là số nguyên.')
     }
-    else {
-      alert("Đây không phải là số nguyên.")
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+      if (x % i === 0) {
+        alert('Đây không phải là số nguyên.')
+      }
     }
+    alert('Đây là số nguyên.')
   }
-  isPrime()
+isPrime()
 </script>
 </body>
 </html>
