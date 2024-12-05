@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function doiChoHaiSo(a, b) {
+        let temp = a;
+        a = b;
+        b = temp;
+
+        return [a, b];
+    }
+
+    let a = parseInt(prompt("Nhập số nguyên a:"));
+    let b = parseInt(prompt("Nhập số nguyên b:"));
+
+    let ketQua = doiChoHaiSo(a, b);
+    alert("Sau khi đổi chỗ, a = " + ketQua[0] + " và b = " + ketQua[1]);
+</script>
+</body>
+</html>

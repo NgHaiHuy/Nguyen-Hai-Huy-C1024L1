@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập số nguyên dương:"));
+
+    function kiemTraNguyenDuong() {
+        if (Number.isInteger(n) && n > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let ketQua = kiemTraNguyenDuong();
+    alert(ketQua);
+
+</script>
+</body>
+</html>

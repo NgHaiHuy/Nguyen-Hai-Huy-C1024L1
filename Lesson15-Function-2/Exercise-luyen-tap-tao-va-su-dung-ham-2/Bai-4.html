@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = parseInt(prompt("Nhập một giá trị:"));
+    let num = Number(x);
+
+    function check() {
+        if (Number.isNaN(num)) {
+            alert("Giá trị bạn nhập không phải là một số.");
+        } else {
+            alert("Giá trị bạn nhập là một số.");
+        }
+    }
+    check();
+</script>
+</body>
+</html>

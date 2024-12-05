@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function daoNguocMang(mang) {
+        return mang.reverse();
+    }
+
+    let mang = [parseInt(prompt("Nhập số 1:")), parseInt(prompt("Nhập số 2:")), parseInt(prompt("Nhập số 3:"))];
+    alert("Mảng ban đầu: " + mang);
+    let mangDaoNguoc = daoNguocMang(mang);
+    alert("Mảng sau khi đảo ngược: " + mangDaoNguoc);
+</script>
+</body>
+</html>

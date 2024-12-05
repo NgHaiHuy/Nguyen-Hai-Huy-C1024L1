@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let mangKyTu = ['a', 'b', 'c', 'a', 'd', 'a'];
+    let kyTu = prompt("Nhập ký tự cần kiểm tra:");
+
+    function demSoLanXuatHien(mang, kyTu) {
+        let count = 0;
+
+        for (let i = 0; i < mang.length; i++) {
+            if (mang[i] === kyTu) {
+                count++;
+            }
+        }
+
+        if (count === 0) {
+            return -1;
+        } else {
+            return count;
+        }
+    }
+
+    let ketQua = demSoLanXuatHien(mangKyTu, kyTu);
+    if (ketQua === -1) {
+        alert("Ký tự không có trong mảng.");
+    } else {
+        alert("Ký tự '" + kyTu + "' xuất hiện " + ketQua + " lần trong mảng.");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let pi = 3.14;
+
+    function tinhChuVi() {
+        let s = parseInt(prompt("Nhập diện tích hình tròn:"));
+        let c = parseInt(prompt("Nhập chu vi hình tròn:"));
+
+        let r = c / (2 * pi);
+        let chuVi = 2 * pi * r;
+        let dienTich = pi * r * r;
+
+        alert("Dien tich = " + s + " => Chu vi = " + chuVi);
+        alert("Chu vi = " + c + " => Dien tich = " + dienTich);
+    }
+    tinhChuVi();
+</script>
+</body>
+</html>
