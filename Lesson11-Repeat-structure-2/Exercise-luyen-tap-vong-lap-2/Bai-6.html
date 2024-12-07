@@ -4,7 +4,59 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #ed7373;
+    }
 
+    .heart {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        transform: rotate(45deg);
+        animation: pulse 1.5s infinite ease-in-out;
+        margin: 0;  /* Đảm bảo không có khoảng cách bên ngoài */
+    }
+
+    .heart::before, .heart::after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        left: 0;
+        top: -50px;  /* Điều chỉnh để căn đúng */
+    }
+
+    .heart::after {
+        left: 50px;
+        top: 0;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+</style>
+<body>
+<div class="heart"></div>
 </body>
 </html>

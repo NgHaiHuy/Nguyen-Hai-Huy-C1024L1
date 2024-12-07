@@ -4,7 +4,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    body{
+        text-align: center;
+    }
+</style>
 <body>
+<script>
+    function tinhTongFibonacci(n) {
+        let a = 0, b = 1, tong = a + b;
 
+        for (let i = 3; i <= n; i++) {
+            let fib = a + b;
+            tong += fib;
+            a = b;
+            b = fib;
+        }
+
+        return tong;
+    }
+
+    const result = tinhTongFibonacci(10);
+    alert("Tổng của 20 số đầu tiên trong dãy Fibonacci là: " + result);
+
+</script>
 </body>
 </html>

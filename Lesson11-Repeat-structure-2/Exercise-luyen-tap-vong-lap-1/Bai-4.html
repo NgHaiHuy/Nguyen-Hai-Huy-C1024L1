@@ -4,7 +4,34 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    body{
+        text-align: center;
+    }
+</style>
 <body>
+<h1>Fibonacci Chia hết cho 5</h1>
+<button onclick="displayResult()">Tìm số</button>
+<script>
+    function findFirstFibonacciDivisibleBy5() {
+        let a = 0, b = 1;
 
+        while (true) {
+            let next = a + b;
+
+            if (next % 5 === 0) {
+                return next;
+            }
+
+            a = b;
+            b = next;
+        }
+    }
+
+    function displayResult() {
+        const result = findFirstFibonacciDivisibleBy5();
+        alert("Số đầu tiên trong dãy Fibonacci chia hết cho 5 là: " + result);
+    }
+</script>
 </body>
 </html>

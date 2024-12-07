@@ -4,7 +4,64 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    body{
+        text-align: center;
+    }
+    button{
+        border: 5px solid black;
+        border-radius: 5px;
+        font-size: 50px;
+        margin-top: 300px;
+        margin-bottom: 100px;
+        margin-right: 150px;
+        margin-left: 80px;
+    }
+</style>
 <body>
+<button id="btnPlay">Chơi</button>
+<script>
+    document.getElementById("btnPlay").addEventListener("click", function () {
+        // Bước 1: Yêu cầu người dùng nhập khoảng đoán
+        let min = parseInt(prompt("Nhập số nhỏ nhất trong khoảng đoán:"));
+        let max = parseInt(prompt("Nhập số lớn nhất trong khoảng đoán:"));
 
+        if (isNaN(min) || isNaN(max) || min >= max) {
+            alert("Giá trị không hợp lệ! Hãy bắt đầu lại.");
+            return;
+        }
+
+        // Bước 2: Sinh số ngẫu nhiên
+        let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        // Bước 3: Người chơi có tối đa 3 lượt đoán
+        let attempts = 3;
+
+        while (attempts > 0) {
+            let guess = parseInt(prompt(`Bạn có ${attempts} lượt đoán. Nhập số bạn đoán:`));
+
+            if (isNaN(guess)) {
+                alert("Vui lòng nhập một số!");
+                continue;
+            }
+
+            if (guess === randomNumber) {
+                alert("Chúc mừng! Bạn đã đoán đúng!");
+                return; // Kết thúc game
+            } else if (guess < randomNumber) {
+                alert("Số bạn đoán nhỏ hơn số cần tìm!");
+            } else {
+                alert("Số bạn đoán lớn hơn số cần tìm!");
+            }
+
+            attempts--; // Giảm lượt chơi
+
+            if (attempts === 0) {
+                alert(`Bạn đã hết lượt chơi. Số đúng là: ${randomNumber}`);
+            }
+        }
+    });
+
+</script>
 </body>
 </html>

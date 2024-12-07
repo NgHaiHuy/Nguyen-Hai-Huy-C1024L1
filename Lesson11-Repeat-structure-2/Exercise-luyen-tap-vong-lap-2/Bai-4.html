@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function drawHollowRectangle(width, height) {
+        let result = '';
 
+        for (let i = 0; i < height; i++) {
+            if (i === 0 || i === height - 1) {
+                result += '*'.repeat(width) + '<br/>';
+            } else {
+                result += '*' + '  '.repeat(width - 2) + '*' + '<br/>';
+            }
+        }
+
+        document.write(result);
+    }
+
+    drawHollowRectangle(8, 4);
+</script>
 </body>
 </html>

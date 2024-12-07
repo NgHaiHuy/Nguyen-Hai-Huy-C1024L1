@@ -4,7 +4,31 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    body{
+        text-align: center;
+    }
+</style>
 <body>
+<h1>Dãy Fibonacci</h1>
+<button onclick="displayFibonacci()">Hiển thị 20 số đầu tiên</button>
+<script>
+    function generateFibonacci(n) {
+        let fibonacci = [0, 1];
 
+        for (let i = 2; i < n; i++) {
+            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+        }
+
+        return fibonacci;
+    }
+
+    function displayFibonacci() {
+        const n = 20;
+        const fibonacciSequence = generateFibonacci(n);
+
+        alert("20 số đầu tiên trong dãy Fibonacci: " + fibonacciSequence.join(", "));
+    }
+</script>
 </body>
 </html>

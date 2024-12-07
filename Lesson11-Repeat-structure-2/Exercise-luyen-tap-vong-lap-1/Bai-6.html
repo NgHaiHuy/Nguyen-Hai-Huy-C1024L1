@@ -5,6 +5,29 @@
     <title>Title</title>
 </head>
 <body>
+<h1>Tính tổng các số chia hết cho 7</h1>
+<button onclick="displaySum()">Tính tổng</button>
+<script>
+    function sumOfFirst30MultiplesOf7() {
+        let count = 0;
+        let sum = 0;
+        let currentNumber = 1;
 
+        while (count < 30) {
+            if (currentNumber % 7 === 0) {
+                sum += currentNumber;
+                count++;
+            }
+            currentNumber++;
+        }
+
+        return sum;
+    }
+
+    function displaySum() {
+        const sum = sumOfFirst30MultiplesOf7()
+        alert("Tổng của 30 số chia hết cho 7 đầu tiên là: " + sum);
+    }
+</script>
 </body>
 </html>

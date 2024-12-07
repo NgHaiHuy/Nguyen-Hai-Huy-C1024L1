@@ -5,6 +5,43 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function triangleBottomLeft(height) {
+        let result = '';
+        for (let i = 1; i <= height; i++) {
+            result += '*'.repeat(i) + '<br/>';
+        }
+        document.write(result);
+    }
+    triangleBottomLeft(5);
 
+    function triangleTopLeft(height) {
+        let result = '';
+        for (let i = height; i >= 1; i--) {
+            result += '*'.repeat(i) + '<br/>';
+        }
+        document.write(result);
+    }
+    triangleTopLeft(5);
+
+    function triangleBottomRight(height) {
+        let result = '';
+        for (let i = 1; i <= height; i++) {
+            result += ' '.repeat(height - i) + '*'.repeat(i) + '<br/>';
+        }
+        document.write(result);
+    }
+    triangleBottomRight(5);
+
+
+    function triangleTopRight(height) {
+        let result = '';
+        for (let i = height; i >= 1; i--) {
+            result += ' '.repeat(height - i) + '*'.repeat(i) + '<br/>';
+        }
+        document.write(result);
+    }
+    triangleTopRight(5);
+</script>
 </body>
 </html>

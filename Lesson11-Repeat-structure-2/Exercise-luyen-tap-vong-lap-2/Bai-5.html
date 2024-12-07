@@ -5,6 +5,27 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function calculateCompoundInterest(principal, months, monthlyRate) {
+        let rate = monthlyRate / 100;
 
+        let finalAmount = principal * Math.pow((1 + rate), months);
+
+        finalAmount = finalAmount.toFixed(2);
+
+        return finalAmount;
+    }
+
+    let initialAmount = 1000000;
+    let duration = 12;
+    let interestRate = 5;
+
+    let totalAmount = calculateCompoundInterest(initialAmount, duration, interestRate);
+
+    document.write(`Số tiền ban đầu: ${initialAmount} VND` + "<br>");
+    document.write(`Số tháng gửi: ${duration} tháng` + "<br>");
+    document.write(`Lãi suất hàng tháng: ${interestRate}%` + "<br>");
+    document.write(`Số tiền cuối cùng sau ${duration} tháng: ${totalAmount} VND` + "<br>");
+</script>
 </body>
 </html>
