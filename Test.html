@@ -13,8 +13,8 @@
         constructor(code, name, email, address) {
             this.code = code;
             this.name = name;
-            this.email = email;
-            this.address = address;
+            this.price = price;
+            this.quantity = quantity;
         }
     }
 
@@ -32,8 +32,8 @@
         table += `<tr>
             <td>${product[i].code}</td>
             <td>${product[i].name}</td>
-            <td>${product[i].email}</td>
-            <td>${product[i].address}</td>
+            <td>${product[i].price}</td>
+            <td>${product[i].quantity}</td>
         </tr>`;
     }
     table += `</table>`;
