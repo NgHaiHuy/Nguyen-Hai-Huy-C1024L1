@@ -6,6 +6,40 @@
     <title>Test</title>
 </head>
 <body>
+<div id="result"></div>
+<script>
+    let product = [];
+    class SanPham {
+        constructor(code, name, email, address) {
+            this.code = code;
+            this.name = name;
+            this.email = email;
+            this.address = address;
+        }
+    }
 
+    product.push(new SanPham('Sp007', 'Pencil', 2000, 1));
+
+    let table = `<table>
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá sản phẩm</th>
+            <th>Số lượng sản phẩm</th>
+        </tr>`;
+
+    for (let i = 0; i < product.length; i++) {
+        table += `<tr>
+            <td>${product[i].code}</td>
+            <td>${product[i].name}</td>
+            <td>${product[i].email}</td>
+            <td>${product[i].address}</td>
+        </tr>`;
+    }
+    table += `</table>`;
+
+    const result = document.getElementById("result");
+    result.innerHTML = table;
+</script>
 </body>
 </html>
