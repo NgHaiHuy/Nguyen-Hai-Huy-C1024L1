@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="500px" height="300px" style="border: 3px solid black"></canvas>
+<div id="area"></div>
+<div id="perimeter"></div>
+<script>
+    class Rectangle {
+        constructor(length, width) {
+            this.length = length;
+            this.width = width;
+        }
+
+        getArea() {
+            return this.length * this.width;
+        }
+
+        getPerimeter() {
+            return (this.length + this.width) * 2;
+        }
+
+        drawRectangle() {
+            const cxt = document.getElementById("canvas").getContext("2d");
+            cxt.clearRect(0, 0, 700, 300)
+            cxt.beginPath();
+            cxt.rect(50, 50, this.width, this.length)
+            cxt.stroke
+        }
+    }
+
+
+    let rectangle = new Rectangle(200, 100);
+
+    function updateRectangle() {
+        let newLength = prompt("Nhập chiều dài: ");
+        let newWidth = prompt("Nhập chiều rộng: ");
+        rectangle.length = parseInt(newLength);
+        rectangle.width = parseInt(newWidth);
+        rectangle.drawRectangle();
+        document.getElementById("area").textContent = "Diện tích: " + rectangle.getArea();
+        document.getElementById("perimeter").textContent = "Chu vi: " + rectangle.getPerimeter();
+    }
+
+    updateRectangle();
+</script>
+</body>
+</html>

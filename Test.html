@@ -17,40 +17,22 @@
     </style>
 </head>
 <body>
-<div id="result"></div>
+<canvas id="drawingCanvas" width="500" height="400" style="border:1px solid #000;"></canvas>
 <script>
-    let productList = [];
-    class Product {
-        constructor(code, name, price, quantity) {
-            this.code = code;
-            this.name = name;
-            this.price = price;
-            this.quantity = quantity;
-        }
-    }
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
 
-    productList.push(new Product('Sp007', 'Pencil', 2000, 1));
+    canvas.addEventListener('mousedown', function (event) {
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
 
-    let table = `<table>
-        <tr>
-            <th>Mã sản phẩm</th>
-            <th>Tên sản phẩm</th>
-            <th>Giá sản phẩm</th>
-            <th>Số lượng sản phẩm</th>
-        </tr>`;
-
-    for (let i = 0; i < productList.length; i++) {
-        table += `<tr>
-            <td>${productList[i].code}</td>
-            <td>${productList[i].name}</td>
-            <td>${productList[i].price}</td>
-            <td>${productList[i].quantity}</td>
-        </tr>`;
-    }
-    table += `</table>`;
-
-    const result = document.getElementById("result");
-    result.innerHTML = table;
+        ctx.fillStyle = 'purple';
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, 2 * Math.PI);
+        ctx.fill();
+    });
+</script>
 </script>
 </body>
 </html>
