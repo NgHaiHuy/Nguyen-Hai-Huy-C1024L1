@@ -1,38 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #999;
-            padding: 4px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
 </head>
 <body>
-<canvas id="drawingCanvas" width="500" height="400" style="border:1px solid #000;"></canvas>
 <script>
-    const canvas = document.getElementById('drawingCanvas');
-    const ctx = canvas.getContext('2d');
+    // Trò chơi Tài Xỉu cơ bản
 
-    canvas.addEventListener('mousedown', function (event) {
-        const rect = canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
+    // Tạo giao diện người dùng
+    const gameContainer = document.createElement('div');
+    gameContainer.style.textAlign = 'center';
+    gameContainer.style.fontFamily = 'Arial, sans-serif';
+    gameContainer.style.backgroundColor = '#f9f9f9';
+    gameContainer.style.padding = '20px';
+    gameContainer.style.border = '1px solid #ccc';
+    gameContainer.style.borderRadius = '10px';
+    gameContainer.style.width = '300px';
+    gameContainer.style.margin = '50px auto';
+    document.body.style.backgroundColor = '#e9ecef';
+    document.body.appendChild(gameContainer);
 
-        ctx.fillStyle = 'purple';
-        ctx.beginPath();
-        ctx.arc(x, y, 10, 0, 2 * Math.PI);
-        ctx.fill();
-    });
-</script>
+    gameContainer.innerHTML = `
+    <h1 style="color: #333;">Trò chơi Tài Xỉu</h1>
+    <p style="font-size: 14px; color: #555;">
+        <strong>Quy tắc:</strong> Tung 3 xúc xắc. <br/>
+        Tổng điểm:
+        <ul style="text-align: left; padding-left: 20px;">
+            <li>Tài: 11 - 18</li>
+            <li>Xỉu: 3 - 10</li>
+        </ul>
+    </p>
+    <label for="betAmount" style="font-size: 14px;">Số tiền cược:</label>
+    <input type="number" id="betAmount" placeholder="Nhập tiền cược" min="1" style="padding: 5px; margin: 5px 0; width: 90%; border: 1px solid #ccc; border-radius: 5px;" />
+    <br/>
+    <label for="betChoice" style="font-size: 14px;">Lựa chọn:</label>
+    <select id="betChoice" style="padding: 5px; margin: 5px 0; width: 95%; border: 1px solid #ccc; border-radius: 5px;">
+        <option value="tai">Tài</option>
+        <option value="xiu">Xỉu</option>
+    </select>
+    <br/><br/>
+    <button id="playButton" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Chơi ngay</button>
+    <h2 style="color: #333;">Kết quả</h2>
+    <p id="result" style="font-size: 16px; font-weight: bold; color: #28a745;"></p>
+    <p id="diceResults" style="font-size: 14px; color: #555;"></p>
+`;
+
+    // Chức năng tạo số ngẫu nhiên cho xúc xắc
+    function rollDice() {
+        return Math.floor(Math.random() * 6) + 1;
+    }
+
+    // Xử lý logic trò chơi
+    function playGame() {
+        const betAmount = Number(document.getElementById('betAmount').value);
+        const betChoice = document.getElementById('betChoice').value;
+        const resultDisplay = document.getElementById('result');
+        const diceResultsDisplay = document.getElementById('diceResults');
+
+        // Kiểm tra dữ liệu người chơi nhập
+        if (isNaN(betAmount) || betAmount <= 0) {
+            resultDisplay.style.color = '#dc3545';
+            resultDisplay.textContent = 'Hãy nhập số tiền cược hợp lệ!';
+            return;
+        }
+
+        // Tung 3 xúc xắc
+        const dice1 = rollDice();
+        const dice2 = rollDice();
+        const dice3 = rollDice();
+        const total = dice1 + dice2 + dice3;
+
+        // Hiển thị kết quả xúc xắc
+        diceResultsDisplay.textContent = `Kết quả xúc xắc: ${dice1}, ${dice2}, ${dice3} (Tổng: ${total})`;
+
+        // Xác định tài hay xỉu
+        const isTai = total >= 11 && total <= 18;
+        const isXiu = total >= 3 && total <= 10;
+
+        // So sánh kết quả
+        if ((betChoice === 'tai' && isTai) || (betChoice === 'xiu' && isXiu)) {
+            resultDisplay.style.color = '#28a745';
+            resultDisplay.textContent = `Bạn đã thắng! Nhận được ${betAmount * 2} điểm.`;
+        } else {
+            resultDisplay.style.color = '#dc3545';
+            resultDisplay.textContent = `Bạn đã thua. Mất ${betAmount} điểm.`;
+        }
+    }
+
+    // Thêm sự kiện nhấn nút
+    document.getElementById('playButton').addEventListener('click', playGame);
+
 </script>
 </body>
 </html>
