@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game Tài Xỉu</title>
+</head>
+<body>
+<script>
+    // Trò chơi Tài Xỉu cơ bản
+
+    // Tạo giao diện người dùng
+    const gameContainer = document.createElement('div');
+    gameContainer.style.textAlign = 'center';
+    gameContainer.style.fontFamily = 'Verdana, sans-serif';
+    gameContainer.style.backgroundColor = '#ffffff';
+    gameContainer.style.padding = '25px';
+    gameContainer.style.border = '1px solid #ddd';
+    gameContainer.style.borderRadius = '12px';
+    gameContainer.style.width = '320px';
+    gameContainer.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    gameContainer.style.margin = '50px auto';
+    document.body.style.backgroundColor = '#f1f3f5';
+    document.body.appendChild(gameContainer);
+
+    let totalWins = 0;
+    let totalLosses = 0;
+
+    let selectedChoice = '';
+
+    gameContainer.innerHTML = `
+    <h1 style="color: #333; font-size: 24px; margin-bottom: 15px;">🎲 Trò chơi Tài Xỉu 🎲</h1>
+    <div id="diceContainer" style="margin-top: 20px;">
+        <div style="display: flex; justify-content: center; gap: 12px;">
+            <div class="dice" style="width: 60px; height: 60px; background-color: white; border: 1px solid #ccc; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);"></div>
+            <div class="dice" style="width: 60px; height: 60px; background-color: white; border: 1px solid #ccc; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);"></div>
+            <div class="dice" style="width: 60px; height: 60px; background-color: white; border: 1px solid #ccc; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);"></div>
+        </div>
+    </div>
+    <p style="font-size: 14px; color: #555; margin-top: 20px; text-align: justify;">
+        <strong>Quy tắc:</strong> Tung 3 xúc xắc. <br/>
+        Tổng điểm:
+        <ul style="text-align: left; padding-left: 20px; margin-top: 5px;">
+            <li style="margin-bottom: 5px;">Tài: 11 - 18</li>
+            <li>Xỉu: 3 - 10</li>
+        </ul>
+    </p>
+    <label for="betAmount" style="font-size: 14px; margin-bottom: 8px; display: block;">Số tiền cược:</label>
+    <input type="number" id="betAmount" placeholder="Nhập tiền cược" min="1" style="padding: 8px; width: 92%; border: 1px solid #ccc; border-radius: 5px;" />
+    <br/>
+    <div style="margin: 15px 0;">
+        <button id="chooseTai" style="padding: 12px 25px; background-color: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 8px;">Tài</button>
+        <button id="chooseXiu" style="padding: 12px 25px; background-color: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">Xỉu</button>
+    </div>
+    <button id="playButton" style="padding: 12px 25px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Chơi ngay</button>
+    <h2 style="color: #333; margin-top: 20px; font-size: 20px;">Kết quả</h2>
+    <p id="result" style="font-size: 16px; font-weight: bold; color: #28a745;"></p>
+    <p id="diceResults" style="font-size: 14px; color: #555;"></p>
+    <h3 style="color: #333; margin-top: 20px; font-size: 18px;">Thống kê</h3>
+    <p id="stats" style="font-size: 14px; color: #555;">Tổng tiền thắng: 0 | Tổng tiền thua: 0</p>
+`;
+
+    // Chức năng tạo số ngẫu nhiên cho xúc xắc
+    function rollDice() {
+        return Math.floor(Math.random() * 6) + 1;
+    }
+
+    // Xử lý logic trò chơi
+    function playGame() {
+        const betAmount = Number(document.getElementById('betAmount').value);
+        const resultDisplay = document.getElementById('result');
+        const diceContainer = document.getElementById('diceContainer');
+        const diceResultsDisplay = document.getElementById('diceResults');
+        const statsDisplay = document.getElementById('stats');
+        const diceElements = document.querySelectorAll('.dice');
+
+        // Kiểm tra dữ liệu người chơi nhập
+        if (isNaN(betAmount) || betAmount <= 0) {
+            resultDisplay.style.color = '#dc3545';
+            resultDisplay.textContent = 'Hãy nhập số tiền cược hợp lệ!';
+            return;
+        }
+
+        if (!selectedChoice) {
+            resultDisplay.style.color = '#dc3545';
+            resultDisplay.textContent = 'Hãy chọn Tài hoặc Xỉu!';
+            return;
+        }
+
+        // Tung 3 xúc xắc
+        const dice1 = rollDice();
+        const dice2 = rollDice();
+        const dice3 = rollDice();
+        const total = dice1 + dice2 + dice3;
+
+        // Hiển thị kết quả xúc xắc
+        diceResultsDisplay.textContent = `Tổng: ${total}`;
+        diceElements[0].textContent = dice1;
+        diceElements[1].textContent = dice2;
+        diceElements[2].textContent = dice3;
+        diceContainer.style.display = 'block';
+
+        // Xác định tài hay xỉu
+        const isTai = total >= 11 && total <= 18;
+        const isXiu = total >= 3 && total <= 10;
+
+        // So sánh kết quả
+        if ((selectedChoice === 'tai' && isTai) || (selectedChoice === 'xiu' && isXiu)) {
+            totalWins += betAmount * 2;
+            resultDisplay.style.color = '#28a745';
+            resultDisplay.textContent = `Bạn đã thắng! Nhận được ${betAmount * 2} điểm.`;
+        } else {
+            totalLosses += betAmount;
+            resultDisplay.style.color = '#dc3545';
+            resultDisplay.textContent = `Bạn đã thua. Mất ${betAmount} điểm.`;
+        }
+
+        // Cập nhật thống kê
+        statsDisplay.textContent = `Tổng tiền thắng: ${totalWins} | Tổng tiền thua: ${totalLosses}`;
+    }
+
+    // Thêm sự kiện nhấn nút
+    const taiButton = document.getElementById('chooseTai');
+    const xiuButton = document.getElementById('chooseXiu');
+
+    function chooseTai() {
+        selectedChoice = 'tai';
+        taiButton.style.backgroundColor = '#1bc61b';
+        xiuButton.style.backgroundColor = '#6c757d';
+    }
+
+    function chooseXiu() {
+        selectedChoice = 'xiu';
+        xiuButton.style.backgroundColor = '#1bc61b';
+        taiButton.style.backgroundColor = '#6c757d';
+    }
+
+    taiButton.addEventListener('click', chooseTai);
+    xiuButton.addEventListener('click', chooseXiu);
+    document.getElementById('playButton').addEventListener('click', playGame);
+
+</script>
+</body>
+</html>
