@@ -184,6 +184,9 @@
     <div class="face right"></div>
     <div class="face left"></div>
   </div>
+  <div id="dice-number" style="margin-top: 20px; font-size: 24px; font-weight: bold; color: #b33951;"></div>
+
+
 
   <button class="roll">
     Roll Dice
@@ -207,47 +210,59 @@
       randomDice();
     }
   }
+  const diceNumberDisplay = document.getElementById('dice-number');
 
   const rollDice = random => {
 
-    dice.style.animation = 'rolling 4s';
+    dice.style.animation = 'rolling 3s';
 
     setTimeout(() => {
+
+      let diceNumberText = '';
 
       switch (random) {
         case 1:
           dice.style.transform = 'rotateX(0deg) rotateY(0deg)';
+          diceNumberText = '1';
           break;
 
         case 6:
           dice.style.transform = 'rotateX(180deg) rotateY(0deg)';
+          diceNumberText = '6';
           break;
 
         case 2:
           dice.style.transform = 'rotateX(-90deg) rotateY(0deg)';
+          diceNumberText = '2';
           break;
 
         case 5:
           dice.style.transform = 'rotateX(90deg) rotateY(0deg)';
+          diceNumberText = '5';
           break;
 
         case 3:
           dice.style.transform = 'rotateX(0deg) rotateY(90deg)';
+          diceNumberText = '3';
           break;
 
         case 4:
           dice.style.transform = 'rotateX(0deg) rotateY(-90deg)';
+          diceNumberText = '4';
           break;
 
         default:
           break;
       }
 
+      // Cập nhật nội dung hiển thị số trên xúc xắc
+      diceNumberDisplay.textContent = `You rolled: ${diceNumberText}`;
+
       dice.style.animation = 'none';
 
     }, 4050);
+  };
 
-  }
 
   rollBtn.addEventListener('click', randomDice);
 
